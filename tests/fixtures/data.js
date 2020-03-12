@@ -1,0 +1,65 @@
+export default [
+  {
+    "token":"hs1x",
+    "url":"tcp://52.58.226.151:5672",
+    "alias":"Rabbit-lb",
+    "last_status":null,
+    "uptime":99.998,
+    "down":false,
+    "down_since":null,
+    "error":null,
+    "period":30,
+    "apdex_t":0.5,
+    "string_match":"",
+    "enabled":true,
+    "published":true,
+    "disabled_locations":[
+      "lan",
+      "mia",
+      "sin",
+      "tok",
+      "syd"
+    ],
+    "last_check_at":"2018-05-08T13:34:58Z",
+    "next_check_at":"2018-05-08T13:35:28Z",
+    "mute_until":"2018-03-01T07:25:38Z",
+    "favicon_url":null,
+    "custom_headers":{
+
+    }
+  },
+  {
+    "token":"huth",
+    "url":"https://picasso.suitepad.systems/status",
+    "alias":"Picasso",
+    "last_status":200,
+    "uptime":100.0,
+    "down": true,
+    "down_since":"2018-01-08T13:35:00Z",
+    "error":null,
+    "period":30,
+    "apdex_t":1.0,
+    "string_match":"",
+    "enabled":true,
+    "published":true,
+    "disabled_locations":[
+      "lan",
+      "mia",
+      "sin",
+      "tok",
+      "syd"
+    ],
+    "last_check_at":"2018-05-08T13:35:00Z",
+    "next_check_at":"2018-05-08T13:35:30Z",
+    "mute_until":null,
+    "favicon_url":null,
+    "custom_headers":{
+
+    },
+    "ssl":{
+      "tested_at":"2018-05-08T13:33:28Z",
+      "valid":true,
+      "error":null
+    }
+  }
+];
