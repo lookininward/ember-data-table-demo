@@ -1,0 +1,62 @@
+<style>
+  .header,
+  .row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .header .cell {
+    font-weight: 600;
+  }
+
+  .cell {
+    padding: 8px 5px;
+    border: 1px solid lightgrey;
+  }
+</style>
+
+{{outlet}}
+
+<div class="header">
+  <div class="cell">
+    Service
+    {{!-- ↑↓ --}}
+  </div>
+  <div class="cell">
+    Status
+  </div>
+  <div class="cell">
+    Rolling Uptime for 30 days
+  </div>
+</div>
+
+<div class="body">
+  {{#each @model as |item|}}
+    <div class="row">
+      <div class="cell">
+        <a
+          href={{concat "https://updown.io/" item.token}}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {{item.alias}}
+        </a>
+      </div>
+      <div class="cell">
+        {{#if item.down}}
+          DOWN
+        {{else}}
+          UP
+        {{/if}}
+      </div>
+      <div class="cell">
+        {{fixed item.uptime}}
+      </div>
+      <div class="cell">
+        <LinkTo @route="item" @model={{item}}>
+          Details
+        </LinkTo>
+      </div>
+    </div>
+  {{/each}}
+</div>
