@@ -1,7 +1,7 @@
 import ENV from 'suitepad/config/environment';
 import Route from '@ember/routing/route';
 
-export default class Application extends Route {
+export default class Services extends Route {
   async _getData(url) {
     try {
       return await (await fetch(url)).json();

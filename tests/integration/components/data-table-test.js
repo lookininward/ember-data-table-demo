@@ -22,8 +22,8 @@ module('Integration | Component | data-table', function(hooks) {
         <DataTable::Body @services={{opts.sortedData}}/>
       </DataTable>
     `);
-    assert.dom('[data-test-component="header"]').exists();
-    assert.dom('[data-test-component="body"]').exists();
+    assert.dom('.table__header').exists();
+    assert.dom('.table__body').exists();
   });
 
   test('click to sort by Alias', async function(assert) {

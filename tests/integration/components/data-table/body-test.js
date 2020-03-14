@@ -26,7 +26,7 @@ module('Integration | Component | data-table/body', function(hooks) {
     router.setupRouter();
     this.set('sortedData', testData);
     await render(hbs`<DataTable::Body @services={{this.sortedData}}/>`);
-    const detailsLink = find('[data-test-btn="item-0"]');
+    const detailsLink = find('[data-test-btn="details"]');
     const base = `${window.location.origin}`;
     assert.equal(detailsLink.href, `${base}/x4d3EfG`)
   });

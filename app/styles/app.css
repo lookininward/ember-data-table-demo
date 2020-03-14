@@ -1,19 +1,50 @@
-.header,
-.row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* Variables */
+:root {
+  --grey-000: lightgrey;
 }
 
-.header .cell {
+/* Data Table */
+.table__header,
+.table__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--grey-000);
+  border-left: 1px solid var(--grey-000);
+}
+
+.table__row:last-child {
+  border-bottom: 1px solid var(--grey-000);
+}
+
+.table__header .table__cell {
   font-weight: 600;
 }
 
-.header .cell:nth-child(1),
-.header .cell:nth-child(2) {
+.table__header .table__cell:nth-child(1),
+.table__header .table__cell:nth-child(2) {
   cursor: pointer;
 }
 
-.cell {
-  padding: 8px 5px;
-  border: 1px solid lightgrey;
+.table__cell {
+  padding: 8px;
+  border-right: 1px solid var(--grey-000);
+}
+
+/* Service Detail */
+.detail {
+  margin: 0 10px;
+  display: grid;
+  grid-template-rows: 1fr repeat(4, 25px);
+  align-items: center;
+}
+
+.detail__header {
+  display: flex;
+  align-items: center;
+}
+
+.detail__icon {
+  max-width: 50px;
+  width: 100%;
+  margin-right: 15px;
 }

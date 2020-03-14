@@ -1,10 +1,7 @@
-<div
-  data-test-component="body"
-  class="body"
->
+<div class="table__body">
   {{#each @services as |item idx|}}
-    <div data-test-row={{idx}} class="row">
-      <div class="cell">
+    <div data-test-row={{idx}} class="table__row">
+      <div class="table__cell">
         <a
           href={{concat "https://updown.io/" item.token}}
           rel="noopener noreferrer"
@@ -13,19 +10,15 @@
           {{item.alias}}
         </a>
       </div>
-      <div class="cell">
-        {{#if item.down}}
-          DOWN
-        {{else}}
-          UP
-        {{/if}}
+      <div class="table__cell">
+        {{if item.down "DOWN" "UP"}}
       </div>
-      <div class="cell">
+      <div class="table__cell">
         {{fixed item.uptime}}
       </div>
-      <div class="cell">
+      <div class="table__cell">
         <LinkTo
-          data-test-btn={{concat "item-" idx}}
+          data-test-btn="details"
           @route="item" @model={{item}}
         >
           Details
