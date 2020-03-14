@@ -22,4 +22,12 @@ module('Unit | Route | services', function(hooks) {
     }
     route._getData(url);
   });
+
+  test('_getData sets error if fetch fails', async function(assert) {
+    assert.expect(1);
+    const route = this.owner.lookup('route:services');
+    window.fetch = () => { throw Error(); }
+    const model = await route.model();
+    assert.ok(model.error);
+  });
 });

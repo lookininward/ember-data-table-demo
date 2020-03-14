@@ -6,7 +6,7 @@ export default class Services extends Route {
     try {
       return await (await fetch(url)).json();
     } catch(e) {
-      alert(e);
+      return { error: 'Please refresh the page and try again.' }
     }
   }
 
