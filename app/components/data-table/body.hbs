@@ -1,0 +1,29 @@
+<div class="table__body">
+  {{#each @services as |service idx|}}
+    <div data-test-row={{idx}} class="table__row">
+      <div class="table__cell">
+        <a
+          href={{concat "https://updown.io/" service.token}}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {{service.alias}}
+        </a>
+      </div>
+      <div class="table__cell">
+        {{if service.down "DOWN" "UP"}}
+      </div>
+      <div class="table__cell">
+        {{fixed service.uptime}}
+      </div>
+      <div class="table__cell">
+        <LinkTo
+          data-test-btn="details"
+          @route="detail" @model={{service}}
+        >
+          Details
+        </LinkTo>
+      </div>
+    </div>
+  {{/each}}
+</div>

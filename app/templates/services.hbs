@@ -1,0 +1,8 @@
+{{#if @model.error}}
+  {{@model.error}}
+{{else}}
+  <DataTable @services={{@model}} as |opts|>
+    <DataTable::Header @setSortKey={{opts.setSortKey}}/>
+    <DataTable::Body @services={{opts.sortedData}}/>
+  </DataTable>
+{{/if}}

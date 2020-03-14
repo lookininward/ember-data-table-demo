@@ -1,0 +1,19 @@
+<div class="table__header">
+  <div
+    data-test-btn="sortByAlias"
+    class="table__cell"
+    {{on "click" (fn @setSortKey "alias")}}
+  >
+    Service ↑↓
+  </div>
+  <div
+    data-test-btn="sortByStatus"
+    class="table__cell"
+    {{on "click" (fn @setSortKey "down")}}
+  >
+    Status ↑↓
+  </div>
+  <div class="table__cell">
+    Rolling Uptime for 30 days
+  </div>
+</div>
