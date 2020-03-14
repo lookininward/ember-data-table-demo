@@ -1,25 +1,25 @@
 <div class="table__body">
-  {{#each @services as |item idx|}}
+  {{#each @services as |service idx|}}
     <div data-test-row={{idx}} class="table__row">
       <div class="table__cell">
         <a
-          href={{concat "https://updown.io/" item.token}}
+          href={{concat "https://updown.io/" service.token}}
           rel="noopener noreferrer"
           target="_blank"
         >
-          {{item.alias}}
+          {{service.alias}}
         </a>
       </div>
       <div class="table__cell">
-        {{if item.down "DOWN" "UP"}}
+        {{if service.down "DOWN" "UP"}}
       </div>
       <div class="table__cell">
-        {{fixed item.uptime}}
+        {{fixed service.uptime}}
       </div>
       <div class="table__cell">
         <LinkTo
           data-test-btn="details"
-          @route="item" @model={{item}}
+          @route="detail" @model={{service}}
         >
           Details
         </LinkTo>
