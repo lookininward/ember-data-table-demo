@@ -1,5 +1,5 @@
 import { helper } from "@ember/component/helper";
-const fixed = function([num]) {
+export function fixed([num]) {
   return `${num.toFixed(2)}%`;
 }
 export default helper(fixed);

@@ -1,0 +1,36 @@
+<div
+  data-test-component="body"
+  class="body"
+>
+  {{#each @services as |item idx|}}
+    <div data-test-row={{idx}} class="row">
+      <div class="cell">
+        <a
+          href={{concat "https://updown.io/" item.token}}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {{item.alias}}
+        </a>
+      </div>
+      <div class="cell">
+        {{#if item.down}}
+          DOWN
+        {{else}}
+          UP
+        {{/if}}
+      </div>
+      <div class="cell">
+        {{fixed item.uptime}}
+      </div>
+      <div class="cell">
+        <LinkTo
+          data-test-btn={{concat "item-" idx}}
+          @route="item" @model={{item}}
+        >
+          Details
+        </LinkTo>
+      </div>
+    </div>
+  {{/each}}
+</div>
