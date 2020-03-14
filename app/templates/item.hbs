@@ -1,0 +1,42 @@
+<div class="detail">
+  <div class="detail__header">
+    <img
+      class="detail__icon"
+      src={{if @model.favicon_url @model.favicon_url "/icon-skeleton.png"}}
+      alt="service icon"
+    />
+    <h1>
+      {{if @model.alias @model.alias "Unknown Alias"}}
+    </h1>
+  </div>
+
+  <div>
+    <b>Link</b>:
+    {{#if @model.url}}
+      <a
+        href={{@model.url}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visit
+      </a>
+    {{else}}
+      Unavailable
+    {{/if}}
+  </div>
+
+  <div>
+    <b>Uptime:</b>
+    {{if @model.uptime (fixed @model.uptime) "Unavailable"}}
+  </div>
+
+  <div>
+    <b>Status</b>:
+    {{if @model.down (concat "DOWN; Since " @model.down_since) "UP"}}
+  </div>
+
+  <div>
+    <b>Description</b>:
+    {{if (description @model.token) (description @model.token) "Unavailable"}}
+  </div>
+</div>
