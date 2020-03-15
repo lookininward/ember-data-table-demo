@@ -28,6 +28,8 @@
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.17.2",
     "ember-cli-dependency-checker": "^3.2.0",
+    "ember-cli-deploy-firebase": "^0.2.14",
+    "ember-cli-deploy-firebase-pack": "^0.3.2",
     "ember-cli-eslint": "^5.1.0",
     "ember-cli-htmlbars": "^4.2.2",
     "ember-cli-inject-live-reload": "^2.0.2",
