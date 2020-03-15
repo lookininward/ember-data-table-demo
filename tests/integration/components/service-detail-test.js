@@ -6,7 +6,6 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | service-detail', function(hooks) {
   setupRenderingTest(hooks);
 
-  const base = `${window.location.origin}`;
   const model = {
     token: 'xyz',
     alias: 'golden eagle',
@@ -23,12 +22,13 @@ module('Integration | Component | service-detail', function(hooks) {
 
   test('render icon if icon url', async function(assert) {
     await render(hbs`<ServiceDetail @icon={{this.model.favicon_url}}/>`);
-    assert.equal(find('.detail__icon').src, `${base}/${model.favicon_url}`);
+    const icon = find('.detail__icon');
+    assert.ok(icon.src.includes(`/${model.favicon_url}`));
   });
 
   test('render skeleton if not icon url', async function(assert) {
     await render(hbs`<ServiceDetail @uptime={{this.model.uptime}}/>`);
-    assert.equal(find('.detail__icon').src, `${base}/icon-skeleton.png`);
+    assert.ok(find('.detail__icon').src.includes('/icon-skeleton.png'));
   });
 
   test('render alias if alias', async function(assert) {
@@ -43,7 +43,7 @@ module('Integration | Component | service-detail', function(hooks) {
 
   test('render link url if url', async function(assert) {
     await render(hbs`<ServiceDetail @url={{this.model.url}}/>`);
-    assert.equal(find('a').href, `${base}/${model.url}`);
+    assert.ok(find('a').href.includes(`/${model.url}`));
   });
 
   test('render Unavailable if not url', async function(assert) {

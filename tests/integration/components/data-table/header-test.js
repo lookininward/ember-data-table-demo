@@ -8,7 +8,7 @@ module('Integration | Component | data-table/header', function(hooks) {
 
   test('Alias header calls setSortKey', async function(assert) {
     assert.expect(1);
-    this.set('setSortKey', (sortKey) => {
+    this.set('setSortKey', sortKey => {
       assert.equal(sortKey, 'alias', "calls setSortKey with 'alias'" );
     });
     await render(hbs`<DataTable::Header @setSortKey={{this.setSortKey}}/>`);
@@ -17,7 +17,7 @@ module('Integration | Component | data-table/header', function(hooks) {
 
   test('Status header calls setSortKey', async function(assert) {
     assert.expect(1);
-    this.set('setSortKey', (sortKey) => {
+    this.set('setSortKey', sortKey => {
       assert.equal(sortKey, 'down', "calls setSortKey with 'down'" );
     });
     await render(hbs`<DataTable::Header @setSortKey={{this.setSortKey}}/>`);
