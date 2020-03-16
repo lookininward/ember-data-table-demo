@@ -30,7 +30,7 @@
   </div>
 
   <div data-test-status>
-    <b>Status</b>: {{if @down (concat "DOWN since " @downSince) "UP"}}
+    <b>Status</b>: {{if @down (concat "DOWN since " (date @downSince)) "UP"}}
   </div>
 
   {{#if (description @token)}}

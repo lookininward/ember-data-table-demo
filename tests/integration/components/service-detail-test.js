@@ -67,7 +67,7 @@ module('Integration | Component | service-detail', function(hooks) {
   });
 
   test('render status Down Since if status Down', async function(assert) {
-    this.set('model', { down: true, down_since: '2020-01-24' });
+    this.set('model', { down: true, down_since: '2018-01-08T13:35:00Z' });
     await render(hbs`
       <ServiceDetail
         @down={{this.model.down}}
@@ -76,7 +76,7 @@ module('Integration | Component | service-detail', function(hooks) {
     `);
     assert.equal(
       find('[data-test-status]').innerText,
-      "Status: DOWN since 2020-01-24"
+      "Status: DOWN since 2018-01-08 08:35:00"
     );
   });
 
