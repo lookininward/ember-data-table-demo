@@ -37,15 +37,15 @@ module('Integration | Component | data-table', function(hooks) {
       </DataTable>
     `);
     await click('[data-test-btn="sortByAlias"]');
-    assert.ok(find('[data-test-row="0"]').textContent.includes('vale'));
-    assert.ok(find('[data-test-row="1"]').textContent.includes('sly'));
-    assert.ok(find('[data-test-row="2"]').textContent.includes('night'));
-    assert.ok(find('[data-test-row="3"]').textContent.includes('golden'));
-    await click('[data-test-btn="sortByAlias"]'); // reverse
     assert.ok(find('[data-test-row="0"]').textContent.includes('golden'));
     assert.ok(find('[data-test-row="1"]').textContent.includes('night'));
     assert.ok(find('[data-test-row="2"]').textContent.includes('sly'));
     assert.ok(find('[data-test-row="3"]').textContent.includes('vale'));
+    await click('[data-test-btn="sortByAlias"]'); // reverse
+    assert.ok(find('[data-test-row="0"]').textContent.includes('vale'));
+    assert.ok(find('[data-test-row="1"]').textContent.includes('sly'));
+    assert.ok(find('[data-test-row="2"]').textContent.includes('night'));
+    assert.ok(find('[data-test-row="3"]').textContent.includes('golden'));
   });
 
   test('click to sort by Status', async function(assert) {

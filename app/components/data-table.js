@@ -9,8 +9,8 @@ export default class DataTable extends Component {
     set(this, 'data', this.args.services);
   }
 
-  @tracked sortKey = 'alias'
-  @tracked descending = true
+  @tracked sortKey = 'down';
+  @tracked descending = false;
 
   @sort('data', ['sortKey'], function(a, b) {
     if (a[this.sortKey] > b[this.sortKey]) {
