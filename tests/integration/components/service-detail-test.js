@@ -6,7 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | service-detail', function(hooks) {
   setupRenderingTest(hooks);
 
-  const model = {
+  let model = {
     token: 'xyz',
     alias: 'golden eagle',
     url: 'www.test.com',
@@ -78,5 +78,16 @@ module('Integration | Component | service-detail', function(hooks) {
       find('[data-test-status]').innerText,
       "Status: DOWN since 2020-01-24"
     );
+  });
+
+  test('render no description if no description', async function(assert) {
+    await render(hbs`<ServiceDetail @token={{this.model.token}}/>`);
+    assert.notOk(find('[data-test-description]'));
+  });
+
+  test('render description if description', async function(assert) {
+    this.set('model', { 'token': 'hs1x' });
+    await render(hbs`<ServiceDetail @token={{this.model.token}}/>`);
+    assert.ok(find('[data-test-description]'));
   });
 });

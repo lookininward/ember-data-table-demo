@@ -26,17 +26,16 @@
   </div>
 
   <div data-test-uptime>
-    <b>Uptime:</b>
-    {{if @uptime (fixed @uptime) "Unavailable"}}
+    <b>Uptime:</b> {{if @uptime (fixed @uptime) "Unavailable"}}
   </div>
 
   <div data-test-status>
-    <b>Status</b>:
-    {{if @down (concat "DOWN since " @downSince) "UP"}}
+    <b>Status</b>: {{if @down (concat "DOWN since " @downSince) "UP"}}
   </div>
 
-  <div>
-    <b>Description</b>:
-    {{if (description @token) (description @token) "Unavailable"}}
-  </div>
+  {{#if (description @token)}}
+    <div data-test-description>
+      <b>Description</b>: {{description @token}}
+    </div>
+  {{/if}}
 </div>
