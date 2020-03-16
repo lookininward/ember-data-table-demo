@@ -1,0 +1,42 @@
+<div class="detail">
+  <div class="detail__header">
+    <img
+      class="detail__icon"
+      src={{if @icon @icon "/icon-skeleton.png"}}
+      alt="service icon"
+    />
+    <h1>
+      {{if @alias @alias "Unknown Alias"}}
+    </h1>
+  </div>
+
+  <div data-test-link>
+    <b>Link</b>:
+    {{#if @url}}
+      <a
+        href={{@url}}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visit
+      </a>
+    {{else}}
+      Unavailable
+    {{/if}}
+  </div>
+
+  <div data-test-uptime>
+    <b>Uptime:</b>
+    {{if @uptime (fixed @uptime) "Unavailable"}}
+  </div>
+
+  <div data-test-status>
+    <b>Status</b>:
+    {{if @down (concat "DOWN since " @downSince) "UP"}}
+  </div>
+
+  <div>
+    <b>Description</b>:
+    {{if (description @token) (description @token) "Unavailable"}}
+  </div>
+</div>

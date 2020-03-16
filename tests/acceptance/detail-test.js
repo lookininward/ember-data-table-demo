@@ -4,7 +4,8 @@ import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | route: detail', function(hooks) {
   setupApplicationTest(hooks);
-  test('transition to services if not complete model', async function(assert) {
+  test('transition to services if not complete model', async assert => {
+    assert.expect(2);
     await visit('/');
     assert.equal(currentURL(), '/');
     await visit('/xyz');

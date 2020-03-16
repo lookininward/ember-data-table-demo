@@ -4,8 +4,6 @@ import { render, click, find } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | data-table', function(hooks) {
-  setupRenderingTest(hooks);
-
   const testData = [
     { alias: 'golden eagle', down: false, uptime: 99.32 },
     { alias: 'sly bandicoot', down: true, uptime: 79.234 },
@@ -13,9 +11,13 @@ module('Integration | Component | data-table', function(hooks) {
     { alias: 'vale of shadows', down: false, uptime: 99.989 }
   ];
 
+  setupRenderingTest(hooks);
+  hooks.beforeEach(function() {
+    this.set('model', testData);
+  });
+
   test('renders headers and body', async function(assert) {
     assert.expect(2);
-    this.set('model', testData);
     await render(hbs`
       <DataTable @services={{this.model}} as |opts|>
         <DataTable::Header @setSortKey={{opts.setSortKey}}/>
@@ -28,7 +30,6 @@ module('Integration | Component | data-table', function(hooks) {
 
   test('click to sort by Alias', async function(assert) {
     assert.expect(8);
-    this.set('model', testData);
     await render(hbs`
       <DataTable @services={{this.model}} as |opts|>
         <DataTable::Header @setSortKey={{opts.setSortKey}}/>
@@ -49,7 +50,6 @@ module('Integration | Component | data-table', function(hooks) {
 
   test('click to sort by Status', async function(assert) {
     assert.expect(8);
-    this.set('model', testData);
     await render(hbs`
       <DataTable @services={{this.model}} as |opts|>
         <DataTable::Header @setSortKey={{opts.setSortKey}}/>
