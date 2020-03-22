@@ -76,7 +76,7 @@ module('Integration | Component | service-detail', function(hooks) {
     `);
     assert.equal(
       find('[data-test-status]').innerText,
-      "Status: DOWN since 2018-01-08 08:35:00"
+      "Status: DOWN since 2018-01-08 01:35:00"
     );
   });
 
